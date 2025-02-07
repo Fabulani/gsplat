@@ -1,11 +1,13 @@
 # gsplat
 
+> This fork has the `DOCKER_README.md` with instructions for using with Docker.
+
 [![Core Tests.](https://github.com/nerfstudio-project/gsplat/actions/workflows/core_tests.yml/badge.svg?branch=main)](https://github.com/nerfstudio-project/gsplat/actions/workflows/core_tests.yml)
 [![Docs](https://github.com/nerfstudio-project/gsplat/actions/workflows/doc.yml/badge.svg?branch=main)](https://github.com/nerfstudio-project/gsplat/actions/workflows/doc.yml)
 
 [http://www.gsplat.studio/](http://www.gsplat.studio/)
 
-gsplat is an open-source library for CUDA accelerated rasterization of gaussians with python bindings. It is inspired by the SIGGRAPH paper [3D Gaussian Splatting for Real-Time Rendering of Radiance Fields](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/), but we’ve made gsplat even faster, more memory efficient, and with a growing list of new features! 
+gsplat is an open-source library for CUDA accelerated rasterization of gaussians with python bindings. It is inspired by the SIGGRAPH paper [3D Gaussian Splatting for Real-Time Rendering of Radiance Fields](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/), but we’ve made gsplat even faster, more memory efficient, and with a growing list of new features!
 
 <div align="center">
   <video src="https://github.com/nerfstudio-project/gsplat/assets/10151885/64c2e9ca-a9a6-4c7e-8d6f-47eeacd15159" width="100%" />
@@ -28,6 +30,7 @@ pip install git+https://github.com/nerfstudio-project/gsplat.git
 ```
 
 We also provide [pre-compiled wheels](https://docs.gsplat.studio/whl) for both linux and windows on certain python-torch-CUDA combinations (please check first which versions are supported). Note this way you would have to manually install [gsplat's dependencies](https://github.com/nerfstudio-project/gsplat/blob/6022cf45a19ee307803aaf1f19d407befad2a033/setup.py#L115). For example, to install gsplat for pytorch 2.0 and cuda 11.8 you can run
+
 ```
 pip install ninja numpy jaxtyping rich
 pip install gsplat --index-url https://docs.gsplat.studio/whl/pt20cu118
@@ -57,7 +60,6 @@ the examples (requires to install some exta dependencies via `pip install -r exa
 - [Fit a 2D image with 3D Gaussians.](https://docs.gsplat.studio/main/examples/image.html)
 - [Render a large scene in real-time.](https://docs.gsplat.studio/main/examples/large_scale.html)
 
-
 ## Development and Contribution
 
 This repository was born from the curiosity of people on the Nerfstudio team trying to understand a new rendering technique. We welcome contributions of any kind and are open to feedback, bug-reports, and improvements to help expand the capabilities of this software.
@@ -78,14 +80,14 @@ We also have a white paper with about the project with benchmarking and mathemat
 
 ```
 @article{ye2024gsplatopensourcelibrarygaussian,
-    title={gsplat: An Open-Source Library for {Gaussian} Splatting}, 
+    title={gsplat: An Open-Source Library for {Gaussian} Splatting},
     author={Vickie Ye and Ruilong Li and Justin Kerr and Matias Turkulainen and Brent Yi and Zhuoyang Pan and Otto Seiskari and Jianbo Ye and Jeffrey Hu and Matthew Tancik and Angjoo Kanazawa},
     year={2024},
     eprint={2409.06765},
     journal={arXiv preprint arXiv:2409.06765},
     archivePrefix={arXiv},
     primaryClass={cs.CV},
-    url={https://arxiv.org/abs/2409.06765}, 
+    url={https://arxiv.org/abs/2409.06765},
 }
 ```
 

@@ -1,0 +1,18 @@
+name: research-gsplat
+services:
+  gsplat:
+    container_name: nerfstudio-gsplat-worker
+    tty: true 
+    image: nerfstudio-gsplat-worker:${GSPLAT_VERSION}
+    pull_policy: never
+    volumes:  # Change to named volumes for production!
+      - ${HOST_DATA_PATH}:/workspaces/gsplat/data
+    env_file:
+      - .env
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]

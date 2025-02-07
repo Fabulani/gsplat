@@ -1,0 +1,9 @@
+.devcontainer
+.github
+assets
+docker
+data
+build
+docs
+gsplat.egg-info
+results
