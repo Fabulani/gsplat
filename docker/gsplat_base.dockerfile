@@ -30,6 +30,3 @@ RUN pip3 install --no-cache-dir --upgrade pip setuptools && \
 RUN git clone https://github.com/rahul-goel/fused-ssim.git && \
     cd fused-ssim && \
     git checkout 1272e21a282342e89537159e4bad508b19b34157
-
-
-# TODO: fused-ssim wheels are lost inside the container. I'm only getting the ondes in /gsplat/dist, gotta get /fused-ssim/dist as well or move fused-ssim elsewhere?
