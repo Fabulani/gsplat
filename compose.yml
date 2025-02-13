@@ -2,13 +2,19 @@ name: research-gsplat
 services:
   gsplat:
     container_name: nerfstudio-gsplat-worker
+    stdin_open: true
     tty: true 
-    image: nerfstudio-gsplat-worker:${GSPLAT_VERSION}
+    image: ghcr.io/fabulani/nerfstudio-gsplat-worker:${GSPLAT_VERSION}
     pull_policy: never
     volumes:  # Change to named volumes for production!
+      - ${PWD}:/workspaces/gsplat
       - ${HOST_DATA_PATH}:/workspaces/gsplat/data
     env_file:
       - .env
+    ports:
+      - "8080:8080"
+    ipc: host
+    command: ["bash"]
     deploy:
       resources:
         reservations:

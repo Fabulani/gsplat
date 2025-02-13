@@ -39,4 +39,16 @@ RUN pip3 install --no-cache-dir ${GSPLAT_WHEEL} && \
     rm ${GSPLAT_WHEEL} && rm ${FUSED_SSIM_WHEEL} && \
     pip3 install --no-cache-dir -r examples/requirements.txt
 
-COPY . .
+
+# Temporary quick-fix as gsplat does not use the pre-compiled cuda script, but tries to do JIT compilation
+RUN apt-get update && apt-get install -y libglm-dev & \
+    wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.1-1_all.deb \
+    && dpkg -i cuda-keyring_1.1-1_all.deb \
+    && apt-get update \
+    && apt-get -y install cuda-toolkit-12-6 \
+    && rm cuda-keyring_1.1-1_all.deb 
+ENV CUDA_HOME=/usr/local/cuda
+ENV PATH=${CUDA_HOME}/bin${PATH:+:${PATH}}
+ENV LD_LIBRARY_PATH=${CUDA_HOME}/lib64:${LD_LIBRARY_PATH} 
+
+# COPY . .
